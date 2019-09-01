@@ -30,6 +30,6 @@ ThePipe = ,
      '|F1:'
 'CALLPIPE (NAME Zuvsm ENDCHAR ?)' ThePipe
 /*
- 
+
 */
 Exit Rc

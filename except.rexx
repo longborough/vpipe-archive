@@ -22,20 +22,20 @@ ThePipe = ,
      '|L: Lookup Count 1-10 Detail',
      '| Spec 11-* 1',
      '| Spec 1-4 1 /-/ next 5-6 next /-/ next 7-9 next 22-* next'
- 
+
 If NoList Then
   ThePipe = ThePipe ,
      '| Hole'
- 
+
 If NoList < WantStats Then
   ThePipe = ThePipe ,
      '| Literal' Copies('-',79)
- 
+
 If WantStats Then
   ThePipe = ThePipe ,
      '| Buffer',
      '|F: Fanin 1 0'
- 
+
 ThePipe = ThePipe ,
      '| *.Output:',
      '? <' Fn 'EXCEPT *',
@@ -51,7 +51,7 @@ ThePipe = ThePipe ,
      '|T:',
      '| Spec W2.1 1 / / 11 1-2 12 W3-* 14',
      '|L:'
- 
+
 If WantStats Then Do
   ThePipe = ThePipe ,
      '?L:',

@@ -11,7 +11,7 @@
 /* where                                                              */
 /*   Pipename   is the filename of the pipe (filetype VPIPE)          */
 /* Syntax of records in "Pipename VPIPE" is defined in VPIPE SCRIPT   */
- 
+
 Arg Rita Rest
 Select
   When Rita = "(RITA)" Then
@@ -34,7 +34,7 @@ Select
     'PIPE' Vpipe(Pipename,Vargs)
   End
 Exit Rc*(Rc/=1)
- 
+
 Emsg:
 Xc = Rc
 'EXECIO 1 EMSG ( STRING DMSVPI001E',

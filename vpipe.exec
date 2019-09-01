@@ -17,14 +17,14 @@
 /* where Pipename VPIPE * is the fileid of the        */
 /*                        vertical pipeline           */
 /*                                                    */
- 
+
 Parse Source . How .
- 
+
 If How='COMMAND' Then Do
   Address CMS 'Vpiperun' Arg(1)
   Exit Rc
   End
- 
+
 Else Do
   Parse Arg Pipename ., Vargs, Options .
   Upper Pipename Options

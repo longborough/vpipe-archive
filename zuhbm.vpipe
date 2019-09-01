@@ -21,13 +21,13 @@ Hole
 X2:
 > TEMP1 TEMP A1
 X1:
- 
+
 C:
 Y: Fanin 1 0
 Z: Spec Outstream 1 1-* 1
- 
+
 D:
 Y:
- 
+
 Z:
 Copy

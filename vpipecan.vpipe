@@ -42,13 +42,13 @@ Y: Pattern Span(" ") Rpos(0)
           Output(" ")  Flush(1)
        Or Span(" ") Rem :X Null(Line := (Line " " X))
        Or Output(Line) Flush(1) Rem :X Null(Line := X)
- 
+
 /* This stage injects an empty stage to ensure that the pattern above
 /* gets "flushed out".
 Literal  |
 A:
- 
- 
+
+
 /* Stages which are Rexx expressions or statements are now evaluated
 Y:
 Find  |                                        /* Remove nulls

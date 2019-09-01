@@ -17,23 +17,23 @@ C: Faninany
 Sort Unique
 D: Fanout
 Hole
- 
+
 A:
 Unique (20.6) Last
 C:
- 
+
 N:
 N1: Locate 30-40 /  UTIM1033I/
 O: Faninany
 Spec 1.8 1 22.5 Nw 30-* N
 C:
- 
+
 N1:
 N2: Locate 30-40 /  ZUTIM REE/
 O:
- 
+
 N2:
 N3: Locate 30-40 /  ZUTIM SPL/
 O:
- 
+
 D:

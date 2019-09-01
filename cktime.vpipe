@@ -9,21 +9,21 @@ NLocate 1.1
 C: Faninany
 D: Fanout
 Hole
- 
+
 N:
 N1: Locate 30-40 /  UTIM/
 NLocate 30-40    /  UTIM1031I/
 O: Faninany
 C:
- 
+
 N1:
 N2: Locate 30-40 /  ZUTIM REE/
 O:
- 
+
 N2:
 N3: Locate 30-40 /  ZUTIM SPL/
 O:
- 
+
 D:
 Sort 1.8 22.5 30-*
 Unique (22.5 30-*) First

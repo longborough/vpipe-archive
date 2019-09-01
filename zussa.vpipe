@@ -10,13 +10,13 @@ Buffer
 B: Merge W3.1 W1.2
 C: Fanout
 Hole
- 
+
 A:
 Unique Count W3.1
 Spec 11-* 1  1.10 N
 Buffer
 B:
- 
+
 C:
 Spec W1.2 1 Read 1-* Nw
 X: If Pick W6.1 == /1/

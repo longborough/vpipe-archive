@@ -9,10 +9,10 @@ ThePipe = ,
      '| PICK 22.8 >>= /'T1'/',
      '| PICK 22.8 <<= /'T2'/',
      '| *.Output:'
- 
+
 'CALLPIPE (NAME LTime ENDCHAR ?)' ThePipe
 Exit Rc
- 
+
 Tconvert: Procedure
   Parse Arg Stime, Min
 If ^Datatype(Min,'W') Then Min = 5
