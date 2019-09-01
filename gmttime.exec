@@ -1,0 +1,18 @@
+/* Returns GMT Time HhMmSs format */
+Trace O
+Address Command
+'PIPE (Name GmtDate)',
+  ' Literal *',
+  '|Spec Tod C2X 1',
+  '|Spec /00/ 1 1.6 Next /0/ NextW 7.7 Next',
+  '|Spec W1.1 X2D 1 W2.1 X2D Nw',
+  '|Spec a: W1.1 . b: W2.1 .',
+  '  set #0:=(b+268435456*a)//86400000000',
+  '  set #0%=1000000',
+  '  set #2:=#0//60',
+  '  set #0%=60',
+  '  set #1:=#0//60',
+  '  set #0%=60',
+  '  Print #0 Pic 99 1 Print #1 Pic 99 N Print #2 Pic 99 N',
+  '|Var OUTPUT'
+Return Output

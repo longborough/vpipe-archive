@@ -1,0 +1,5 @@
+Zutap RTV
+''; Arg Start Stop .;
+  If ^Datatype(Start,'W') Then Start = '0000';
+  If ^Datatype(Stop ,'W') Then Stop  = '2400';
+  S.1 = 'TapeTime' Right(Start,4,'0') Right(Stop,4,'0')

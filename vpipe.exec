@@ -1,0 +1,44 @@
+/* VPIPE EXEC A1                       Version: 2.00  */
+/* Created on 18 Nov 1986 at 09:34:15                 */
+/*         by Brent Longborough (BRENT at RIOVMBHQ)   */
+/*                                                    */
+/* Change history:                                    */
+/*                                                    */
+/* 1987-02-21 2.00 Support for Rexx expressions       */
+/* 1991-07-04 2.01 Allow for call as command          */
+/*                 (Thanks to JPH)                    */
+/*                                                    */
+/* Returns a pipeline specification built from a      */
+/* Vertical Pipeline                                  */
+/* Format:                                            */
+/*                                                    */
+/* Result = Vpipe(Pipename)                           */
+/*                                                    */
+/* where Pipename VPIPE * is the fileid of the        */
+/*                        vertical pipeline           */
+/*                                                    */
+ 
+Parse Source . How .
+ 
+If How='COMMAND' Then Do
+  Address CMS 'Vpiperun' Arg(1)
+  Exit Rc
+  End
+ 
+Else Do
+  Parse Arg Pipename ., Vargs, Options .
+  Upper Pipename Options
+  Opts = 'STAGESEP | END º Escape \'
+  If Abbrev('ONLYOPTIONS',Options,1) Then
+    Return Opts
+  Address Command
+  Pipe = '<' Pipename 'VPIPE *',
+  '|Rexx VPipeCan' Vargs ||,
+  '|Join *',
+  '|Stem Pipe.'
+  'PIPE (' Opts 'Name Vpipe )' Pipe
+  If Abbrev('NOOPTIONS',Options,1) Then
+    Return Pipe.1
+  Else
+    Return '(' Opts 'LONG NAME' Pipename ')' Pipe.1
+  End

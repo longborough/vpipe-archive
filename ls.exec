@@ -1,0 +1,7 @@
+/* Generic log search */
+/* LS <n> search fileid */
+Trace O
+Arg Parms
+Address Command
+'EXEC LPIPE LS' Parms
+Exit Rc

@@ -1,0 +1,16 @@
+9 GLBZ0037I   BMX/Debit load  started
+9 GLBZ0039I   BMX/Debit load ended
+0 GLBI0000I   Debit Global cruft
+2 Label       Global version
+7 UTPD0001I   Receive complete
+7 UTP40007I   Receive  started
+1 UTP60022I   Global object version
+1 UTP60023I   Global object version
+5 UTP70007T   Global object expiration
+9 VGL002      Credit Global load  start
+9 VGL032      Credit Global load ended
+8 VGL601      Other VIC update alert
+2 OBJ         Global version
+5 VLT30001I   Global event reconciliation
+5 ISTC0034I   Reapplication BSTC file complete
+2 ZUOBJ       Entry - ZUOBJ

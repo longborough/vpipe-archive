@@ -1,0 +1,13 @@
+cp Q N
+split /,/
+strip both
+nfind VSM
+nlocate /- DSC/
+x: if find LOG
+pick 4.5 ^== 11.5
+pick 10.3 ^== /TPX/
+x:
+chop 8
+sort
+join 7 /  /
+cons

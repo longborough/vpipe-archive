@@ -1,0 +1,28 @@
+/* Generic log filter driver  */
+/* LPIPE filter \ filter \ ... fileid */
+Trace O
+Address Command
+Arg Parms
+Parms = " " Parms
+Na = Words(Parms)
+If Na < 3 Then Exit 99
+W = Wordindex(Parms,Na-2)  /* Find fileid */
+Fileid = Substr(Parms,W)
+Parms = Substr(Parms,1,W-1)
+Filters = ""
+Do While Parms <> ""
+  Parse Var Parms This '\' Parms
+  This = Strip(This)
+  If This <> "" Then
+    Filters = Filters || '|' This
+  End
+Parse Var Fileid Fn Ft Fm .
+If Filters = "" Then
+  'KBROWSE' Fn Ft Fm
+Else
+  'RITA',
+       '  Literal' Fn Ft Fm,
+       '| Rexx Glf',
+       Filters,
+       '| Rexx LB' Fn 'TEMP A1'
+Exit Rc

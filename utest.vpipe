@@ -1,0 +1,9 @@
+Literal A B C D
+/*Dup
+Split
+A: Unless Locate /B/
+Insert /No  /
+A:
+Insert /Yes /
+A:
+Insert /Done: /

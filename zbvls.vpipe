@@ -1,0 +1,8 @@
+''; Arg Stid .;
+    Zone = '32-46';
+    Search = 'ZBVLS DSP STATS';
+    If Stid <> '' Then Zone = '32-54';
+    If Stid <> '' Then Search = Search Stid;
+    S.1 = 'Zone' Zone 'Between /'Search'/ /END OF DISPLAY/'
+Change 48.1 /3/|/
+Change 85.1 /3/|/

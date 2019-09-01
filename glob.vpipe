@@ -1,0 +1,2 @@
+''; Arg Lvl .; If ^Datatype(Lvl,'W') Then Lvl = 3;
+'Except' Lvl 'Glob N'

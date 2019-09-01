@@ -1,0 +1,6 @@
+Zone 32.9 Between /COSK0381E/ 2
+Spec W1.1 1 W4.1 Nw W8.1 Nw W10.1 Nw
+  Read A: Substr 2-* Of W6.1 Nw /(/ Nw Id A Next /)/ Next
+DateConv W5.1 RexxJ RexxN
+Spec W1-4 1 W5-* Next.20 Right
+Literal ----Date/Time---- Dev Volser ------Expires------

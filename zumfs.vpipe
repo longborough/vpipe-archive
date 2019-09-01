@@ -1,0 +1,39 @@
+/* Locate /UMFC- ONLINE MODULE DISPLAY ERRORS SUMMARY:/
+/* Locate /UMFC-  MODULE STATUS DISPLAY COMPLETE/
+N: Zone 30-*
+ Inside
+  /  UMFC- ONLINE MODULE DISPLAY ERRORS SUMMARY:/
+  /  UMFC-  MODULE STATUS DISPLAY COMPLETE/
+NLocate /== NO ERRORS FOUND ON MOD ONLINE ==/
+Change 56.6 / TYPE / DEVA /
+Locate 56.6 / DEVA /
+Spec 1.8 1 22.5 Nw
+Unique Count
+Spec 11-* 1 1-10 Nw
+A: Fanout
+Unique (20.6 1.8) First
+B: Fanout
+C: Faninany
+Sort Unique
+D: Fanout
+Hole
+ 
+A:
+Unique (20.6) Last
+C:
+ 
+N:
+N1: Locate 30-40 /  UTIM1033I/
+O: Faninany
+Spec 1.8 1 22.5 Nw 30-* N
+C:
+ 
+N1:
+N2: Locate 30-40 /  ZUTIM REE/
+O:
+ 
+N2:
+N3: Locate 30-40 /  ZUTIM SPL/
+O:
+ 
+D:

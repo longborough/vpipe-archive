@@ -1,0 +1,28 @@
+Command LISTFILE * * A
+W: If Locate 10.4 /RITA/
+Pick 14.1 >>= '0'
+Pick 14.1 <<= '9'
+Spec /*ERASE / 1 1-* Next          /*
+W:
+X: If Locate 10.5 /TEMP /
+Spec /*ERASE / 1 1-* Next          /*
+X:
+Y: If Locate 10.6 /ZUTAP /
+Spec /*ERASE / 1 1-* Next          /*
+Y:
+X:
+Z: If Find *ERASE
+Spec 2-* 1
+Cons
+C: Command
+Z:
+Hole
+ 
+C:
+Count Lines
+Spec 1-* 1 / files erased./ Next
+N: If Locate 1.2 /1 /
+Change /files/file/
+N:
+Change 1.2 /0 /No /
+Cons

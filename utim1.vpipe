@@ -1,0 +1,21 @@
+Locate /UTIM/
+/* Locate Anycase / ree/
+NLocate 30.6 / ZUTIM/
+NLocate / UTIM1031I/
+NLocate / ZUTIM DIS/
+Nlocate /> ZUTIM/
+Nlocate / RESTART/
+Nlocate / UTIM0221I/
+Nlocate / UTIM0222I/
+Nlocate / UTIM0019I/
+Nlocate / UTIM1043I/
+Nlocate / UTIM1000I/
+Nlocate / UTIM1009I/
+Nlocate / UTIM0024I/
+Nlocate / UTIM1042I/
+Nlocate / UTIM1001I/
+Nlocate / UTIM1034I/
+Nlocate / BPKD/
+/* Nlocate Anycase / SPL/
+Spec 1.4 1 '/' N 5.2 N '/' N 7.2 N 22.8 Nw ',' N W 3-* N
+/* Spec 1-* 1 Read ',' Next 1-* Nw

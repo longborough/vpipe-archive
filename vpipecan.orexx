@@ -1,0 +1,46 @@
+/* VPIPECAN REXX A1                     Version: 2.01 */
+/* Created on 17 Nov 1986 at 19:41:53                 */
+/*         by VPIPEBLD from VPIPECAN VPIPE            */
+/*                                                    */
+/* Change history:                                    */
+/*                                                    */
+/* 1987-02-21 2.00 Support for Rexx expressions       */
+/* 1987-05-12 2.00 Use To() in place of ToStr()       */
+/* 1990-05-15 2.01 Remove null records                */
+/* 1990-07-11 2.02 Avoid use of : assignment operator */
+/* 1991-04-29 2.03 Adjust for new STRIP behaviour     */
+/*                 (My thanks to John Hartmann)       */
+/*                                                    */
+Parse Arg Vargs
+Pipe = 'Rexx VPipeInc|'
+Pipe = Pipe'NFind /*|'
+Pipe = Pipe'Pattern (To("/*") Rem) :Out Or Rem :X Out(X "/*")|'
+Pipe = Pipe'Pattern (To("/*") "/*")+ :X (To("/*") Fail) Or Out(X)|'
+Pipe = Pipe'Pattern Rtab(2) :Out|'
+Pipe = Pipe'Strip Trailing|Pad 1|'
+Pipe = Pipe'Pattern (Rtab(1) :X "||" Or Rtab(0) :X) Out(X)|'
+Pipe = Pipe'A: Fanin|'
+Pipe = Pipe'Y: Pattern Span(" ") Rpos(0) Output(Line) Flush(1)',
+           'Null(Line := "") Output(" ")  Flush(1) Or Span(" ")',
+           'Rem :X Null(Line := (Line " " X) ) Or',
+           'Output(Line) Flush(1) Rem :X Null(Line := X)'
+Pipe = Pipe'บ'
+Pipe = Pipe'Literal  |'
+Pipe = Pipe'A:'
+Pipe = Pipe'บ'
+Pipe = Pipe'Y:|'
+Pipe = Pipe'Find  |'
+Pipe = Pipe'Rexx VpipEval' Vargs'|'
+Pipe = Pipe'Change 1-* /||/||||/|'
+Pipe = Pipe'Change 1-* /บบ/บบบบ/|'
+Pipe = Pipe'Pattern (Span(" ") Rpos(0) Out("บบบบ")) Or (Span(" ") Rem :X Out(" "
+ X)) Or (Rem :X Out("บบ||" X))|'
+Pipe = Pipe'Join *|'
+Pipe = Pipe'Specs 3-* 1|'
+Pipe = Pipe'Split Before String /บบบบ/|'
+Pipe = Pipe'Split After  String /บบ||/|'
+Pipe = Pipe'Pattern "บบบบ" Rpos(0) Abort Or Rem :Out|'
+Pipe = Pipe'Change 1-* /บบบบบบ||/บบ/|'
+Pipe = Pipe'Change 1-* /บบ||/||/'
+'CALLPIPE (End บ StageSep |) *.Input.0:|'Pipe'|*.Output.0:'
+Exit Rc

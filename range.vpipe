@@ -1,0 +1,26 @@
+spec number 1 1-* next
+x: if drop 1
+take last 1
+spec a: 1-10 .
+     b: 24-30 .
+     11-* 1
+     set #0:=b-a
+/*   if #0>0 then
+        write
+        print #0 strip 1
+        / records missing/ next
+/*      endif
+x:
+spec 11-* 1
+x:
+y: Fanin
+Sort 22.8
+z: Fanout
+Hole
+ 
+'Literal' GmtTime()
+Specs /Current time:/ 1 / / 21 Pad : 1.2 N.3 3.2 N.3 5.2 N
+Buffer
+y:
+ 
+z:

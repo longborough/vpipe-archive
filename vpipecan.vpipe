@@ -1,0 +1,77 @@
+/* VPIPECAN VPIPE                      Version: 2.01
+/*
+/* Change history
+/*
+/* Date       Vers
+/* 1987-02-21 2.00 Allow for Rexx statements and expressions
+/* 1987-05-12 2.00 Use To() in place of ToStr()
+/* 1990-05-15 2.01 Remove null records
+/* 1990-07-11 2.02 Avoid use of : assignment operator
+/*
+/* Converts a Vertical Pipeline into Canonical Form:
+/* * Includes expanded
+/* * No comments
+/* * Rexx statements interpreted
+/* * Control characters escaped
+/* * Each stage a separate record, ending with a stage separator if not
+/*   the last in its pipeline, and having the correct number of trailing
+/*   blanks
+/* * Pipelines separated by records containing a single End-character
+/* * Null pipelines removed
+/*
+Rexx VPipeInc                                  /* Expand Imbeds
+/*
+/* The next section removes comments and ensures correct trailing blanks
+/*
+NFind /*                                       /* Lose whole comments
+Pattern (To("/*") Rem) :Out                    /* Ensure trailing
+     Or Rem :X Out(X "/*")                     /*  comment separator
+Pattern (To("/*") "/*")+ :X                    /* Chop after last
+        (To("/*") Fail)                        /* comment separator
+         Or Out(X)                             /*
+Pattern Rtab(2) :Out                           /* Remove last comment sep
+Strip Trailing                                 /* Remove trailing blanks
+Pattern (Rtab(1) :X "|" Or Rtab(0) :X) Out(X)  /* Remove guard stage sep
+A: Fanin
+/*
+/* The pattern which follows joins up continuation lines and emits
+/* one record per stage, to allow Rexx evaluation.
+/*
+Y: Pattern Span(" ") Rpos(0)
+          Output(Line) Flush(1) Null(Line := "")
+          Output(" ")  Flush(1)
+       Or Span(" ") Rem :X Null(Line := (Line " " X))
+       Or Output(Line) Flush(1) Rem :X Null(Line := X)
+ 
+/* This stage injects an empty stage to ensure that the pattern above
+/* gets "flushed out".
+Literal  |
+A:
+ 
+ 
+/* Stages which are Rexx expressions or statements are now evaluated
+Y:
+Find  |                                        /* Remove nulls
+Rexx VpipEval
+/*
+/* Pipeline control characters must be escaped
+/*
+Change 1-* /\/\\/                              /* Insert appropriate
+Change 1-* /|/\|/                              /*  Escape
+Change 1-* /บ/\บ/                              /*   Characters
+/*
+/* Divide stages and join it all up
+/*
+Pattern (Span(" ") Rpos(0) Out("บบ"))          /* Empty record = Pipe End
+     Or (Span(" ") Rem :X Out(" " X))          /* Leading blank = Cont..
+     Or (Rem :X Out("บ|" X))                   /* Otherwise it's a stage.
+Join *                                         /* Lump it all together
+/*
+/* Now break it down into canonical stages
+/*
+Specs 3-* 1                                    /* Remove first stage sep
+Split Before String /บบ/                       /* Pipe ends
+Split After  String /บ|/                       /* Stage separators
+Pattern "บบ" Rpos(0) Abort Or Rem :Out         /* Eliminate null pipes
+Change 1-* /บบบ|/บ/                            /* Form End character
+Change 1-* /บ|/|/                              /* Form stage separator

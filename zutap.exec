@@ -1,0 +1,11 @@
+/* Find ZUTAP SUM xxx DA ddmmm and list tapes */
+Address Command
+Arg Tape Fn Ft Fm .
+If Fm = "" Then
+  Arg Fn Ft Fm . Tape
+'PIPE (ENDCHAR ?)',
+        'Literal' Fn Ft Fm,
+     '| Rexx Glf',
+     '| Rexx Zutap' Tape,
+     '| Rexx LB' Fn 'ZUTAP A1'
+Exit Rc

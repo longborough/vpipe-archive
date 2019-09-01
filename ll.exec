@@ -1,0 +1,16 @@
+/* Semi-intelligenmt listfile */
+Address Command
+Arg Fn Ft Fm .
+Select
+  When Fn = "" Then
+    Fileid = "* * A"
+  When Ft = "" Then
+    Fileid = "* *" Fn
+  When Fm = "" Then
+    Fileid = Fn Ft "*"
+  Otherwise
+    Fileid = Fn Ft Fm
+  End
+'CLRSCRN'
+'LISTFILE' Fileid '( L'
+Exit Rc

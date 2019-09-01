@@ -1,0 +1,42 @@
+/* VPIPERUN EXEC A1                    Version: 2.00  */
+/* Created on 17 Nov 1986 at 16:48:08                 */
+/*         by Brent Longborough (BRENT at RIOVMBHQ)   */
+/*                                                    */
+/* Change history:                                    */
+/*                                                    */
+/* 1987-02-21 2.00 Support for Rexx expressions       */
+/*                                                    */
+/* Run a Vertical Pipeline                                            */
+/* Format: VPIPERUN Pipename                                          */
+/* where                                                              */
+/*   Pipename   is the filename of the pipe (filetype VPIPE)          */
+/* Syntax of records in "Pipename VPIPE" is defined in VPIPE SCRIPT   */
+ 
+Arg Rita Rest
+Select
+  When Rita = "(RITA)" Then
+    Parse Arg . Pipename Vargs
+  When Rita = "(DEMO)" Then
+    Parse Arg . Pipename Vargs
+  Otherwise
+    Parse Arg Pipename Vargs
+  End
+Upper PipeName
+Address Command
+'STATE' Pipename 'VPIPE *'
+If Rc /= 0 Then Signal Emsg
+Select
+  When Rita = "(RITA)" Then
+    'RITA' Vpipe(Pipename,Vargs)
+  When Rita = "(DEMO)" Then
+    'EXEC PIPEDEMO' Vpipe(Pipename,Vargs)
+  Otherwise
+    'PIPE' Vpipe(Pipename,Vargs)
+  End
+Exit Rc*(Rc/=1)
+ 
+Emsg:
+Xc = Rc
+'EXECIO 1 EMSG ( STRING DMSVPI001E',
+'Error' Rc 'when locating' Pipename 'VPIPE'
+Exit Xc

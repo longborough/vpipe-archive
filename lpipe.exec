@@ -1,0 +1,36 @@
+/* Generic log filter driver  */
+/* LPIPE filter \ filter \ ... fileid */
+Trace O
+Address Command
+Arg Parms
+Parms = " " Parms
+Na = Words(Parms)
+If Na < 3 Then Exit 99
+W = Wordindex(Parms,Na-2)  /* Find fileid */
+Fileid = Substr(Parms,W)
+Parms = Substr(Parms,1,W-1)
+Filters = ""
+Parse Value GmtDate() With Today Yesterday .
+Do While Parms <> ""
+  Parse Var Parms This Rest '\' Parms
+  This = Strip(This)
+  If This <> "" Then Do
+    'STATE' This 'VPIPE *'
+    If Rc = 0 Then
+      Filters = Filters || '|' Vpipe(This, Rest, N)
+    Else
+      Filters = Filters || '|' This Rest
+    End
+  End
+Parse Var Fileid Fn Ft Fm .
+'PIPE Command LISTFILE' Fn Ft Fm '| Take 1 | Var Fileid'
+Parse Var Fileid Xn Xt Xm
+If Filters = "" Then
+  'KBROWSE' Xn Xt Xm                   /* No - just view     */
+Else
+  'PIPE (' Vpipe(Lpipe,,'O') ')',
+       '  Command LISTFILE' Fn Ft Fm,  /* A list of logfiles */
+       '| Rexx Glf',                   /* Read them *all*    */
+       Filters,                        /* Filter them        */
+       '| Rexx LB' Xn 'TEMP A1'        /* View the result    */
+Exit Rc

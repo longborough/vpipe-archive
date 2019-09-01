@@ -1,0 +1,33 @@
+Zone 30-45 Inside /      Heartbeat /  /  End of Display/
+Nlocate 30-50 /      Items in table:/
+X1: If Anyof
+    Locate W5.1 /Inactive/
+  | Locate W6.1 /Active/
+  | Locate W3.3 /No items found/
+Sort 52.1 D 30-60
+Unique 30-60 Last
+C: Spec Outstream 1 1-* 1
+Hole
+X1:
+X2: If Anyof
+    Locate W3.4 /Remote     Vap      Socket    Monitor/
+  | Locate W3.4 /ID      Index     Number    Status/
+  | Locate W3.4 /------    -----     ------    -------/
+Sort 52.1 D 30-60
+Unique 30-60 Last
+D: Spec Outstream 1 1-* 1
+X2:
+Hole
+X2:
+> TEMP1 TEMP A1
+X1:
+ 
+C:
+Y: Fanin 1 0
+Z: Spec Outstream 1 1-* 1
+ 
+D:
+Y:
+ 
+Z:
+Copy

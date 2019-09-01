@@ -1,0 +1,7 @@
+Zone 51-74 Between ! ZBSTC/ZQSTC Keep Track ! / End of Keep Track File./
+Verify 44.12 /0123456789/
+Locate 55.1
+''; Arg Search;
+    If Search <> '' Then S.1 = 'Locate Anycase !'Strip(Search,'B')'!'
+Sort 33.1 D 32-* 1-31
+Unique 32-* Last

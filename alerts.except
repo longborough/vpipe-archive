@@ -1,0 +1,22 @@
+8 UQCS0041E Node inactive
+9 ICT10001W Card Number match
+8 UQCS0052E Inter-VIC inactive
+9 CYED0001I Module queue alert
+9 KSWC0003I VIC up
+9 KSWC0004I VIC down
+9 MQSC0318E MQ Channel abnormal stop
+9 UHLD0007I Lock pending
+9 UHLD0007W Lock pending
+9 UIVB0004I VIC restart successful
+9 UIVX0001W Inter-VIC active
+9 UIVX0002W Inter-VIC inactive
+9 UQCS0032E VSM Alerts
+7 ESPM0001I Etim start
+7 ESPM0002I Etim status
+7 ESPM0001T Etim complete
+9 KSWC0007I Batch Xmt Shut down
+9 KSWC0001I Switching in Progress
+9 TTX80001W No IP network interface available to TTS
+8 TTX80002I IP network interface is now available to TTS
+9 UIVF0002W Resp time monitor has timed out
+9 UIVF0001W Resp time exceeded

@@ -1,0 +1,19 @@
+/* Returns GMT Dates for Today and yesterday in 0dMmm format */
+Trace O
+Address Command
+'PIPE (Name GmtDate)',
+  ' Literal *',
+  '|Spec Tod C2X 1',
+  '|Spec /00/ 1 1.6 Next /0/ NextW 7.7 Next',
+  '|Spec W1.1 X2D 1 W2.1 X2D Nw',
+  '|Spec a: W1.1 . b: W2.1 .',
+  '  set #0:=(b+268435456*a)%86400000000+693595',
+  '  set #1:=#0-1',
+  '  print #0 1',
+  '  print #1 Nw',
+  '|DateConv W2.1 RexxB RexxN',
+  '|DateConv W1.1 RexxB RexxN',
+  '|Spec Pad 0 W1.1 1.2 R W2.1 N W4.1 Nw.2 R W5.1 N',
+  '|Xlate Upper',
+  '|Var OUTPUT'
+Return Output

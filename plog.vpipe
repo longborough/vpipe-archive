@@ -1,0 +1,6 @@
+< PLOG FILE A
+Sort
+Spec Select Second
+  W1.1 1 a: W4.1 NextW
+  set #2:=#1 set #1:=a print #1-#2 Nextw
+Cons

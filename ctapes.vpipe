@@ -1,0 +1,16 @@
+''; Arg Fileid
+'Command LISTFILE' Fileid
+Rexx Glf
+Rexx ZUTAP BXA
+A: Fanout
+Change 6.1 /E/C/
+Spec 25.5 1 6.1 Nw
+Sort Count
+B: Fanin
+Spec 11-* 1 1-10 N
+>> CTAPE LIST A
+ 
+A:
+Spec 25.5 1 / / Nw
+Sort Count
+B:

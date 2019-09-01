@@ -1,0 +1,18 @@
+A1: NLocate 86.4 /CTL-/            /*
+A2: NLocate 86.4 /OPR-/            /*
+A3: Locate 63.5 /CODE-/           /*
+Spec 1-29 1 63.1 Nw 68.1 Nw 69.2 Nw 71.6 Nw
+B1: Faninany
+C1: Fanout
+Hole
+ 
+A2:
+Spec 1-29 1 86.1 Nw 90.1 Nw /../ Nw 91.6 Nw
+B1:
+ 
+A1:
+Spec 1-29 1 86.1 Nw 90.1 Nw /../ Nw 91.6 Nw
+B1:
+ 
+C1:
+Spec 1.8 1 22-* Nw
